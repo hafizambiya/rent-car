@@ -21,7 +21,7 @@ class LoginController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-        dd($credentials);
+        // dd($credentials);
 
         $remember = $request->has('remember');
 
