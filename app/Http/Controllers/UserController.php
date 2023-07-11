@@ -14,19 +14,20 @@ class UserController extends Controller
         'alamat' => 'required',
         'no_hp' => 'required',
         'sim' => 'required',
-        'password' => 'required|min:6',
+
     ]);
 
     $user = New User;
     $user->nama = $request->nama;
-    $user->alamt = $request->alamat;
+    $user->alamat = $request->alamat;
     $user->no_hp = $request->no_hp;
     $user->sim = $request->sim;
+    $user->password = bcrypt($request->password);
     $user->save();
 
 
 
 
-    return redirect()->back()->with('success', 'Registrasi berhasil!');
+    return redirect('login')->with('status', 'Registrasi berhasil!');
 }
 }
