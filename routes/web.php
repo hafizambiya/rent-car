@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,14 @@ Route::get('/registrasi', function () {
 Route::post('/registrasi_proses', [UserController::class, 'registrasi_proses']);
 
 
-Route::get('/login', function () {
-    return view('login');
+
+
+Route::controller(LoginController::class)->group(function () {
+    Route::get('login', 'index')->name('login');
+    Route::post('login/proses', 'proses');
+    Route::get('logout', 'logout');
 });
+
+Route::get('/user', function () {
+    return view('user');
+})->middleware('cekuser');

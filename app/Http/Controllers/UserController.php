@@ -14,11 +14,13 @@ class UserController extends Controller
         'alamat' => 'required',
         'no_hp' => 'required',
         'sim' => 'required',
+        'email' => 'required|email|unique:users',
 
     ]);
 
     $user = New User;
     $user->nama = $request->nama;
+    $user->email = $request->email;
     $user->alamat = $request->alamat;
     $user->no_hp = $request->no_hp;
     $user->sim = $request->sim;

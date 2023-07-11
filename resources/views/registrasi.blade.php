@@ -63,6 +63,12 @@
                 <p class="text-danger">{{ $message }}</p>
             @enderror
             <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Email" aria-label="Nama" name="email" >
+              </div>
+              @error('email')
+                  <p class="text-danger">{{ $message }}</p>
+              @enderror
+            <div class="mb-3">
               <input type="text" class="form-control" placeholder="Alamat" aria-label="Alamat" name="alamat">
             </div>
             @error('alamat')
