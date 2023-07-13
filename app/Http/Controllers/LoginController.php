@@ -26,7 +26,7 @@ class LoginController extends Controller
         $remember = $request->has('remember');
 
         $validasi = Auth::attempt($credentials , $remember, User::class);
-        dd($validasi);
+        // dd($validasi);
 
 
         $user = Auth::user();
@@ -35,5 +35,16 @@ class LoginController extends Controller
         } else {
             return redirect()->route('login')->with('failed', 'email atau password salah');
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }

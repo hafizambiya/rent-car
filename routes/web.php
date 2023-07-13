@@ -32,4 +32,4 @@ Route::controller(LoginController::class)->group(function () {
 
 Route::get('/user', function () {
     return view('user');
-})->middleware('cekuser');
+})->middleware('auth');

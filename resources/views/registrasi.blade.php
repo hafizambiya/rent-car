@@ -91,7 +91,7 @@
 
 
             <div class="mb-3">
-              <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="Password">
+              <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password">
             </div>
             @error('password')
             <p class="text-danger">{{ $message }}</p>

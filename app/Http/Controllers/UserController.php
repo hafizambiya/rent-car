@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -25,6 +26,8 @@ class UserController extends Controller
     $user->no_hp = $request->no_hp;
     $user->sim = $request->sim;
     $user->password = bcrypt($request->password);
+    // dd($request->password);
+    // $user->password = Hash::make('ambiya');
     $user->save();
 
 
