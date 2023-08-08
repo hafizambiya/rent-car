@@ -14,7 +14,7 @@ class UserController extends Controller
         'nama' => 'required',
         'alamat' => 'required',
         'no_hp' => 'required',
-        'sim' => 'required',
+        // 'sim' => 'required',
         'email' => 'required|email|unique:users',
 
     ]);
@@ -24,7 +24,7 @@ class UserController extends Controller
     $user->email = $request->email;
     $user->alamat = $request->alamat;
     $user->no_hp = $request->no_hp;
-    $user->sim = $request->sim;
+    // $user->sim = $request->sim;
     $user->password = bcrypt($request->password);
     // dd($request->password);
     // $user->password = Hash::make('ambiya');

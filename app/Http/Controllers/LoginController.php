@@ -20,13 +20,16 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        $credentials = $request->only('email', 'password');
-        // dd($credentials);
+        $credentials = [
+            'email' => $request->email,
+            'password'=>$request->password
+        ];
+        // $request->only('sim', 'password');
+
 
         $remember = $request->has('remember');
 
         $validasi = Auth::attempt($credentials , $remember, User::class);
-        // dd($validasi);
 
 
         $user = Auth::user();
