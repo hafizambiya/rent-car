@@ -28,7 +28,8 @@ class User extends Authenticatable
         'alamat',
         'password',
         'no_hp',
-        'email'
+        'email',
+        'google_id'
         // Tambahkan atribut lain yang ingin Anda mass assignable
     ];
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GoogleController;
 use Illuminate\Auth\Events\PasswordReset;
 
 /*
@@ -82,3 +83,10 @@ Route::post('/reset-password', function (Request $request) {
                 ? redirect()->route('login')->with('status', __($status))
                 : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
+
+// login google
+
+Route::controller(GoogleController::class)->group(function(){
+    Route::get('auth/google','redirectToGoogle')-> name('auth.google');
+    Route::get('auth/google/callback','handleGoogleCallback');
+});
