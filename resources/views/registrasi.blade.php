@@ -9,7 +9,7 @@
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
             <div class="card z-index-0">
                 <div class="card-header text-center pt-4">
-                    <h5>Register</h5>
+                    <h5>Registrasi</h5>
                 </div>
                 @if (session('message'))
                     <div class="alert alert-warning text-center  ms-4 me-4">
@@ -63,19 +63,11 @@
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
 
-
-                        <div class="form-check form-check-info text-start">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and
-                                    Conditions</a>
-                            </label>
-                        </div>
                         <div class="text-center">
                             <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Daftar</button>
                         </div>
-                        <p class="text-sm mt-3 mb-0">Already have an account? <a href="javascript:;"
-                                class="text-dark font-weight-bolder">Sign in</a></p>
+                        <p class="text-sm mt-3 mb-0">Sudah mendaftar? <a href="{{ 'login' }}"
+                                class="text-dark font-weight-bolder">Masuk</a></p>
                     </form>
                 </div>
             </div>

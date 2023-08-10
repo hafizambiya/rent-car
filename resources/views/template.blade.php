@@ -28,7 +28,7 @@
         <div class="container">
             <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white"
                 href="{{ asset('/') }}pages/dashboard.html">
-                Rent Car
+                Starter-Template
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -40,19 +40,11 @@
                 </span>
             </button>
             <div class="collapse navbar-collapse" id="navigation">
-                <ul class="navbar-nav mx-auto">
-
-
-                    <li class="nav-item">
-                        <a class="nav-link me-2" href="{{ 'registrasi' }}">
-                            <i class="fas fa-user-circle opacity-6  me-1"></i>
-                            Sign Up
-                        </a>
-                    </li>
+                <ul class="navbar-nav ms-auto d-md-flex">
                     <li class="nav-item">
                         <a class="nav-link me-2" href="{{ 'login' }}">
                             <i class="fas fa-key opacity-6  me-1"></i>
-                            Sign In
+                            Masuk
                         </a>
                     </li>
                 </ul>
@@ -68,9 +60,9 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
-                        <h1 class="text-white mb-2 mt-5">Welcome!</h1>
-                        <p class="text-lead text-white">Use these awesome forms to login or create new account in your
-                            project for free.</p>
+                        <h1 class="text-white mb-2 mt-5">Selamat Datang</h1>
+                        <p class="text-lead text-white">Silahkan untuk mengisi form pendaftaran dibawah ini, email yang
+                            sudah didaftarkan tidak bisa didaftarkan ulang</p>
                     </div>
                 </div>
             </div>
@@ -83,26 +75,6 @@
     <footer class="footer py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mb-4 mx-auto text-center">
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                        Company
-                    </a>
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                        About Us
-                    </a>
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                        Team
-                    </a>
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                        Products
-                    </a>
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                        Blog
-                    </a>
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                        Pricing
-                    </a>
-                </div>
                 <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
                     <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
                         <span class="text-lg fab fa-dribbble"></span>
@@ -127,7 +99,7 @@
                         Copyright ©
                         <script>
                             document.write(new Date().getFullYear())
-                        </script> Soft by Creative Tim.
+                        </script> made with love.
                     </p>
                 </div>
             </div>

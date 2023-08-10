@@ -14,7 +14,6 @@ class UserController extends Controller
         'nama' => 'required',
         'alamat' => 'required',
         'no_hp' => 'required',
-        // 'sim' => 'required',
         'email' => 'required|email|unique:users',
         'password' => 'required|min:5|confirmed',
 
@@ -25,6 +24,7 @@ class UserController extends Controller
     $user->email = $request->email;
     $user->alamat = $request->alamat;
     $user->no_hp = $request->no_hp;
+    $user->role = 'user';
     $user->password = bcrypt($request->password);
     $user->save();
 

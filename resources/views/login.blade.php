@@ -14,8 +14,8 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <h4 class="font-weight-bolder">Sign In</h4>
-            <p class="mb-0">Enter your email and password to sign in</p>
+            <h4 class="font-weight-bolder">Selamat Datang</h4>
+            <p class="mb-0">Silahkan masukan email dan password untuk masuk ke halaman beranda peserta</p>
 
         </div>
         <div class="card-body">
@@ -39,11 +39,11 @@
                     <label class="form-check-label" for="rememberMe">Remember me</label>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                    <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Masuk</button>
                 </div>
             </form>
         </div>
-        <p class="text-center">Or Login With Gmail</p>
+        <p class="text-center">Atau masuk menggunakan Gmail</p>
         <div class="col-12 me-auto px-1">
             <a class="btn btn-outline-light w-100" href="{{ route('auth.google') }}">
                 <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
@@ -67,16 +67,19 @@
             </a>
         </div>
         <div class="card-footer text-center pt-0 px-lg-2 px-1">
-            <p class="mb-4 text-sm mx-auto">
-                Don't have an account?
-                <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Sign up</a>
-                @if (session('failed'))
-                    <div class="alert alert-warning">
-                        {{ session('failed') }}
-                    </div>
-                @endif
+            <p class=" text-sm mx-auto">
+                Belum mendaftar ?
+                <a href="{{ 'registrasi' }}" class="text-primary text-gradient font-weight-bold">Registrasi |</a>
+                <a href="{{ 'forgot-password' }}" class="text-primary text-gradient font-weight-bold">Lupa Password</a>
+
             </p>
         </div>
+
+        @if (session('failed'))
+            <div class="alert alert-warning">
+                {{ session('failed') }}
+            </div>
+        @endif
     </div>
 
 @endsection

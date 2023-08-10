@@ -15,13 +15,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable, CanResetPassword;
     protected $table = 'users';
     protected $primaryKey = 'id';
-    // protected $username = 'sim';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
 
      protected $fillable = [
         'nama',
@@ -30,7 +24,17 @@ class User extends Authenticatable
         'no_hp',
         'email',
         'google_id'
-        // Tambahkan atribut lain yang ingin Anda mass assignable
+
     ];
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
 
 }

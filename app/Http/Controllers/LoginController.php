@@ -34,6 +34,11 @@ class LoginController extends Controller
         $user = Auth::user();
 
         if ($validasi) {
+            if ($user->role == "admin") {
+                return redirect()->intended('admin');
+            } elseif ($user->role == "user") {
+                return redirect()->intended('user');
+            }
             return redirect()->intended('user');
         } else {
             return redirect()->route('login')->with('failed', 'email atau password salah');

@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\RoleMiddleware;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\LoginController;
@@ -29,13 +30,22 @@ Route::get('/registrasi', function () {
 });
 Route::post('/registrasi_proses', [UserController::class, 'registrasi_proses']);
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['rolemiddleware:user']], function () {
+        Route::get('/user', [RegisteredController::class, 'index'])->name('user');
+    });
+    Route::group(['middleware' => ['rolemiddleware:admin']], function () {
+        Route::get('/admin', function () {
+            return view('welcome');
+        });
+    });
+});
+
 Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'index')->name('login');
     Route::post('login/proses', 'proses');
     Route::get('logout', 'logout');
 });
-
-Route::get('/user', [RegisteredController::class, 'index'])->name('user')->middleware('auth');
 
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
