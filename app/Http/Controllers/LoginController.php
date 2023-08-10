@@ -31,8 +31,8 @@ class LoginController extends Controller
 
         $validasi = Auth::attempt($credentials , $remember, User::class);
 
-
         $user = Auth::user();
+
         if ($validasi) {
             return redirect()->intended('user');
         } else {

@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\GoogleController;
 use Illuminate\Auth\Events\PasswordReset;
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\RegisteredController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,7 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('logout', 'logout');
 });
 
-Route::get('/user', function () {
-    return view('user');
-})->middleware('auth');
+Route::get('/user', [RegisteredController::class, 'index'])->name('user')->middleware('auth');
 
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
@@ -63,7 +62,7 @@ Route::post('/reset-password', function (Request $request) {
     $request->validate([
         'token' => 'required',
         'email' => 'required|email',
-        'password' => 'required|min:8|confirmed',
+        'password' => 'required|min:5|confirmed',
     ]);
 
     $status = Password::reset(
