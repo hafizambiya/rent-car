@@ -26,14 +26,16 @@ class GoogleController extends Controller
                 Auth::login($finduser);
                 return redirect()->intended('user');
             }else{
-                $newUser = User::updateOrCreate(['email'=>$user->email],[
-                    'nama' => $user->name,
-                    'google_id' => $user->id,
-                    'password' => bcrypt('password')
-                ]);
+                // $newUser = User::updateOrCreate(['email'=>$user->email],[
+                //     'nama' => $user->name,
+                //     'google_id' => $user->id,
+                //     'password' => bcrypt('password')
+                // ]);
 
-                Auth::login($newUser);
-                return redirect()->intended('user');
+                // Auth::login($newUser);
+                // return redirect()->intended('user');
+                return redirect('registrasi')->with('message', 'Anda belum terdaftar, silahkan mendaftar terlebih dahulu');
+
             }
 
         } catch(Exception $e){

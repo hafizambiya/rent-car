@@ -16,6 +16,7 @@ class UserController extends Controller
         'no_hp' => 'required',
         // 'sim' => 'required',
         'email' => 'required|email|unique:users',
+        'password' => 'required|min:5|confirmed',
 
     ]);
 
@@ -24,14 +25,8 @@ class UserController extends Controller
     $user->email = $request->email;
     $user->alamat = $request->alamat;
     $user->no_hp = $request->no_hp;
-    // $user->sim = $request->sim;
     $user->password = bcrypt($request->password);
-    // dd($request->password);
-    // $user->password = Hash::make('ambiya');
     $user->save();
-
-
-
 
     return redirect('login')->with('status', 'Registrasi berhasil!');
 }
